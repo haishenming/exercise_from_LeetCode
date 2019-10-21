@@ -1,4 +1,4 @@
-package _0_ClimbingStairs
+package _070_ClimbingStairs
 
 import "fmt"
 

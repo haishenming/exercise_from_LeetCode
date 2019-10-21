@@ -15,35 +15,32 @@ import "fmt"
 //
 // Related Topics 数组 哈希表
 
-
-
 //leetcode submit region begin(Prohibit modification and deletion)
 func twoSum(nums []int, target int) []int {
 	// hashmap
-	
+
 	targetMap := make(map[int]int)
-	
-	for i:=0;i<len(nums);i++ {
+
+	for i := 0; i < len(nums); i++ {
 		targetMap[target-nums[i]] = i
 	}
-	
+
 	rdata := []int{}
-	for i:=0;i<len(nums);i++ {
-		if m, ok := targetMap[nums[i]]; ok && m != i{
+	for i := 0; i < len(nums); i++ {
+		if m, ok := targetMap[nums[i]]; ok && m != i {
 			rdata = []int{i, m}
 			break
 		}
 	}
-	
+
 	return rdata
-	
-	
 
 }
+
 //leetcode submit region end(Prohibit modification and deletion)
 func main() {
 	nums := []int{2, 7, 11, 15}
 	target := 9
-	
+
 	fmt.Println(twoSum(nums, target))
 }

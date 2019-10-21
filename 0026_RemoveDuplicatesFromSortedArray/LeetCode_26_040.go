@@ -1,4 +1,4 @@
-package _6_RemoveDuplicatesFromSortedArray
+package _026_RemoveDuplicatesFromSortedArray
 
 import "fmt"
 
@@ -48,7 +48,7 @@ import "fmt"
 
 func removeDuplicates(nums []int) int {
 	// 双指针
-	
+
 	i := 0
 	for j := 0; j < len(nums); j++ {
 		if nums[i] != nums[j] {
@@ -56,10 +56,10 @@ func removeDuplicates(nums []int) int {
 			nums[i] = nums[j]
 		}
 	}
-	
+
 	fmt.Println(nums)
-	return i+1
-	
+	return i + 1
+
 }
 
 //leetcode submit region end(Prohibit modification and deletion)
@@ -67,5 +67,5 @@ func removeDuplicates(nums []int) int {
 func main() {
 	nums := []int{1, 1, 2}
 	fmt.Println(removeDuplicates(nums))
-	
+
 }

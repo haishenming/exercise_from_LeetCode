@@ -1,4 +1,4 @@
-package _89_RotateArray
+package _189_RotateArray
 
 // todo 第二遍 2019年10月17日
 //给定一个数组，将数组中的元素向右移动 k 个位置，其中 k 是非负数。
@@ -32,19 +32,19 @@ package _89_RotateArray
 //leetcode submit region begin(Prohibit modification and deletion)
 func rotate1(nums []int, k int) {
 	// 暴力法
-	
+
 	if k > len(nums) {
 		k = k % len(nums)
 	}
-	
+
 	m := len(nums) - k
-	
+
 	for i := 0; i < m; i++ {
 		n := nums[0]
 		nums = nums[1:]
 		nums = append(nums, n)
 	}
-	
+
 }
 
 //leetcode submit region end(Prohibit modification and deletion)
@@ -52,6 +52,6 @@ func rotate1(nums []int, k int) {
 func main() {
 	nums := []int{1, 2, 3, 4, 5, 6, 7}
 	k := 3
-	
+
 	rotate1(nums, k)
 }

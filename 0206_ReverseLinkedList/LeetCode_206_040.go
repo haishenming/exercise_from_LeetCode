@@ -1,4 +1,4 @@
-package _06_ReverseLinkedList
+package _206_ReverseLinkedList
 
 import "fmt"
 

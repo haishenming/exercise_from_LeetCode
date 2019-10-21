@@ -1,4 +1,4 @@
-package _5_ThreeSum
+package _015_ThreeSum
 
 import (
 	"fmt"
