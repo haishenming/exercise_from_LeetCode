@@ -12,16 +12,44 @@
 // Related Topics 数组 哈希表
 
 
-
-
 //leetcode submit region begin(Prohibit modification and deletion)
 // todo
-impl Solution {
-	pub fn two_sum(nums: Vec<i32>, target: i32) -> Vec<i32> {
 
-	}
+use std::collections::HashMap;
+
+struct Solution {}
+
+impl Solution {
+    pub fn two_sum(nums: Vec<i32>, target: i32) -> Vec<i32> {
+        let mut num_hash: HashMap<i32, i32> = HashMap::new();
+        let mut j: i32;
+
+        for (i, x) in nums.iter().enumerate() {
+            num_hash.insert(*x as i32, i as i32);
+        }
+
+        for (i, x) in nums.iter().enumerate() {
+            match num_hash.get(&(target - (*x))) {
+                Some(v) => {
+                    j = *v;
+                }
+                None => continue,
+            };
+            if j != i as i32 {
+                return vec![i as i32, j as i32];
+            }
+        }
+
+
+        return Vec::new();
+    }
 }
+
 //leetcode submit region end(Prohibit modification and deletion)
 fn main() {
+    let nums = vec![2, 7, 11, 15];
+    let target = 9;
 
+    let rdata = Solution::two_sum(nums, target);
+    println!("{} {}", rdata[0], rdata[1]);
 }
