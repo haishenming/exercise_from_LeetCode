@@ -1,9 +1,3 @@
-package _026_RemoveDuplicatesFromSortedArray
-
-import "fmt"
-
-// 第二遍 2019年10月17日
-
 //给定一个排序数组，你需要在原地删除重复出现的元素，使得每个元素只出现一次，返回移除后数组的新长度。
 //
 // 不要使用额外的数组空间，你必须在原地修改输入数组并在使用 O(1) 额外空间的条件下完成。
@@ -44,27 +38,32 @@ import "fmt"
 //
 // Related Topics 数组 双指针
 
+struct Solution {}
+
 //leetcode submit region begin(Prohibit modification and deletion)
-
-func removeDuplicates(nums []int) int {
-	// 双指针
-
-	i := 0
-	for j := 0; j < len(nums); j++ {
-		if nums[i] != nums[j] {
-			i++
-			nums[i] = nums[j]
-		}
-	}
-
-	return i + 1
-
+impl Solution {
+    pub fn remove_duplicates(nums: &mut Vec<i32>) -> i32 {
+        if nums.is_empty() { return 0; }
+        let mut i = 0;
+        for j in 1..nums.len() {
+            if nums[j] != nums[i] {
+                i += 1;
+                nums[i] = nums[j];
+            }
+        }
+        (i + 1) as i32
+    }
 }
-
 //leetcode submit region end(Prohibit modification and deletion)
 
-func main() {
-	nums := []int{1, 1, 2}
-	fmt.Println(removeDuplicates(nums))
+fn main() {
+    let mut nums = vec![1];
 
+    let rdata = Solution::remove_duplicates(&mut nums);
+    println!("{}", rdata);
+    println!("==============");
+
+    for i in 0..nums.len() {
+        println!("{}", nums[i])
+    }
 }

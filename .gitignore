@@ -128,3 +128,5 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
+/0001_TowSum/LeetCode_1_040
+/0026_RemoveDuplicatesFromSortedArray/LeetCode_26_040
