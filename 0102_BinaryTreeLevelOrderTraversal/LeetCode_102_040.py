@@ -31,29 +31,57 @@ class TreeNode:
         self.right = None
 
 class Solution:
-    def levelOrder(self, root: TreeNode) -> list:
-        # BFS
-        q = []
+    def levelOrder1(self, root: TreeNode) -> list:
+        # DFS
         levels = []
         if not root:
-            return []
+            return levels
 
-        q.append(root)
+        def helper(node, level):
+            if len(levels) == level:
+                levels.append([])
+
+            levels[level].append(node.val)
+
+            if node.left:
+                helper(node.left, level + 1)
+            if node.right:
+                helper(node.right, level + 1)
+
+        helper(root, 0)
+        return levels
+
+    def levelOrder2(self, root: TreeNode) -> list:
+        # BFS
+        from collections import deque
+
+        levels = []
+        if not root:
+            return levels
+
         level = 0
-
-        while q:
+        queue = deque([root,])
+        while queue:
             levels.append([])
-            level_length = len(q)
+            level_length = len(queue)
+
             for i in range(level_length):
-                node = q.pop()
+                node = queue.popleft()
                 levels[level].append(node.val)
+
                 if node.left:
-                    q.append(node.left)
+                    queue.append(node.left)
                 if node.right:
-                    q.append(node.right)
+                    queue.append(node.right)
+
             level += 1
 
         return levels
+
+
+
+
+
 
 
 
@@ -80,4 +108,4 @@ if __name__ == '__main__':
 
 
     s = Solution()
-    print(s.levelOrder(root))
+    print(s.levelOrder2(root))
